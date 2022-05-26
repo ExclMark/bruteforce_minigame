@@ -23,10 +23,14 @@ class Colors:
     END = '\033[0m'
 
 
-if os.geteuid() != 0:
-    print(Colors.RED + "You need to run this program as root or with sudo!" + Colors.END)
-    sleep(5)
-    exit()
+try:
+    if os.geteuid() != 0:
+        print(
+            Colors.RED + "You need to run this program as root or with sudo!" + Colors.END)
+        sleep(5)
+        exit()
+except:
+    pass
 
 brute_logo = """\033[92m
              ____  ____  _   _ _____ _____ _____ ___  ____   ____ _____
